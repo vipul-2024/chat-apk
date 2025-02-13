@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  /* Add gradient background */
+  background-color: rgb(240, 253, 250);
+  background-image: radial-gradient(
+      at 69% 87%,
+      rgb(212, 212, 212) 0,
+      transparent 71%
+    ),
+    radial-gradient(at 24% 86%, rgb(220, 252, 231) 0, transparent 22%);
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
+
+

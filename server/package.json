@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "module": "server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "doker": "^0.0.8",
+    "express": "^4.21.2",
+    "i": "^0.3.7",
+    "server": "^1.0.41",
+    "socket.io": "^4.8.1"
+  }
+}
