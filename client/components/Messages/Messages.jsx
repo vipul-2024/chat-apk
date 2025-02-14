@@ -60,24 +60,6 @@ export default function Messages({ messages, id, teamName = "Vipul tech" }) {
           <h1>{teamName}</h1>
           <ul className="flex flex-row gap-2 items-center">
             <h4>Network: {useOnlineStatus() ? "online" : "offline"}</h4>
-            <button onClick={videoStream ? stopCameraAccess : handleCameraAccess} className="p-2 rounded bg-white text-green-400">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d={videoStream ? "M15.75 19.5L8.25 12l7.5-7.5" : "M2.25 12l8.958-8.958c.1-.1.216-.156.332-.156h9.585a2.25 2.25 0 012.25 2.25v15.75c0 .116-.056.232-.156.332L13.25 21.75m-8.958-8.958L15.75 12m-4.5-4.5v9m-4.5-4.5H12"} />
-              </svg>
-            </button>
-            {videoStream && (
-              <video
-                ref={ref => {
-                  if (ref) {
-                    ref.srcObject = videoStream;
-                  }
-                }}
-                autoPlay
-                playsInline
-                muted
-                className="rounded-lg w-20 h-20"
-              />
-            )}
           </ul>
         </div>
       </div>
