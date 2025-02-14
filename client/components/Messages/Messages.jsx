@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Chat from "./Chat";
+import { Camera } from "lucide-react";
+
 
 function useOnlineStatus() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -27,7 +29,6 @@ function useOnlineStatus() {
 
 export default function Messages({ messages, id, teamName = "Vipul tech" }) {
   const scrollRef = useRef(null);
-  const [videoStream, setVideoStream] = useState(null);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -35,31 +36,17 @@ export default function Messages({ messages, id, teamName = "Vipul tech" }) {
     }
   }, [messages]);
 
-  const handleCameraAccess = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      setVideoStream(stream);
-    } catch (error) {
-      console.error("Error accessing camera:", error);
-      alert("Camera access denied or unavailable.");
-    }
-  };
 
-  const stopCameraAccess = () => {
-    if (videoStream) {
-      const tracks = videoStream.getTracks();
-      tracks.forEach(track => track.stop());
-      setVideoStream(null);
-    }
-  };
 
   return (
     <>
       <div className="bg-green-400 text-white w-full">
         <div className="container mx-auto flex flex-row justify-between items-center sm:px-5 py-2 px-2">
           <h1>{teamName}</h1>
+          
           <ul className="flex flex-row gap-2 items-center">
             <h4>Network: {useOnlineStatus() ? "online" : "offline"}</h4>
+            <Camera className="w-7 h-5 cursor-pointer hover:scale-110 " />
           </ul>
         </div>
       </div>
